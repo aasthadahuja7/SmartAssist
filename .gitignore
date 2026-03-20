@@ -1,0 +1,19 @@
+# Node Modules
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# Environment Variables (CRITICAL SECURITY!)
+.env
+server/.env
+client/.env
+
+# Database Data / Logs
+db-data/
+*.sqlite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.DS_Store

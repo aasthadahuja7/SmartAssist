@@ -16,3 +16,6 @@ module.exports = app;
 const queryRoutes = require("./routes/queryRoutes");
 
 app.use("/api", queryRoutes);
+// ⚡ NEW: Hook up the Authentication URLs!
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
