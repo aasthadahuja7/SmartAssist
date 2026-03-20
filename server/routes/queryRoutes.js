@@ -2,12 +2,16 @@
 const express = require("express");
 const multer = require("multer");
 const router = express.Router();
-const { handleQuery } = require("../controllers/queryController");
 
-// Tell Multer to keep the image in RAM (memory) so we can send it directly to Gemini
+// Import the new getHistory function alongside handleQuery!
+const { handleQuery, getHistory } = require("../controllers/queryController");
+
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Add the upload middleware BEFORE your controller runs
+// Your existing POST route
 router.post("/ask", upload.single("image"), handleQuery);
+
+// 🔥 The brand new GET route for history!
+router.get("/history", getHistory);
 
 module.exports = router;
